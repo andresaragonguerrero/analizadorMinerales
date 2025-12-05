@@ -1,0 +1,10 @@
+.form, .form-fieldset {
+  height: 100%;
+
+  margin: 0 auto;
+}
+
+.form-section-inputs {
+  display: grid;
+  gap: var(--space-3);
+}

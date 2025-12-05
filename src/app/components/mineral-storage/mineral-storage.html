@@ -1,0 +1,28 @@
+<div class="mineral-storage-wrapper">
+  <em *ngIf="minerals.length === 0">{{ 'MINERAL_STORAGE.NO_MINERALS' | translate }}</em>
+
+  <h2 *ngIf="minerals.length > 0">{{ 'MINERAL_STORAGE.TITLE' | translate }}</h2>
+
+  <ul *ngIf="minerals.length > 0" class="list-mineral-data">
+    <li *ngFor="let mineral of minerals" class="mineral-data">
+      <em>{{ 'MINERAL_CRITERIA.IDENTIFIER' | translate }} {{ mineral.mineralIdentifier }}</em>
+      <em>{{ 'MINERAL_CRITERIA.NAME' | translate }} {{ mineral.mineralName }}</em>
+      <em>{{ 'MINERAL_CRITERIA.GROUP' | translate }} {{ mineral.mineralGroup }}</em>
+      <em>{{ 'MINERAL_CRITERIA.HARDNESS' | translate }} {{ mineral.mineralHardness }}</em>
+      <em>{{ 'MINERAL_CRITERIA.GRAIN_SIZE' | translate }} {{ mineral.mineralGrainSize }}</em>
+      <em>{{ 'MINERAL_CRITERIA.GRAIN_SHAPE' | translate }} {{ mineral.mineralGrainShape }}</em>
+      <em>{{ 'MINERAL_CRITERIA.CRISTAL_SIZE' | translate }} {{ mineral.mineralCristalSize }}</em>
+      <!-- en el siguiente campo se eliminó: {{ mineral.mineralFormationTemperature }} -->
+      <em>
+        {{ 'MINERAL_CRITERIA.FORMATION_TEMPERATURE' | translate }}
+        {{ unitSystemService.convertTemperature(mineral.mineralFormationTemperature) }}{{ unitSystemService.getTemperatureSymbol() }}
+      </em>
+      <em>{{ 'MINERAL_CRITERIA.STRUCTURE' | translate }} {{ mineral.mineralStructure }}</em>
+      <em>{{ 'MINERAL_CRITERIA.TEXTURE' | translate }} {{ mineral.mineralTexture }}</em>
+      <em>{{ 'MINERAL_CRITERIA.CLASSIFICATION_BUILDING' | translate }} {{ mineral.buildingClassification }}</em>
+      <em>{{ 'MINERAL_CRITERIA.CLASSIFICATION_ORNAMENTAL' | translate }} {{ mineral.ornamentalClassification }}</em>
+      <em>{{ 'MINERAL_CRITERIA.CLASSIFICATION_TOOL' | translate }} {{ mineral.toolClassification }}</em>
+      <em>{{ 'MINERAL_CRITERIA.CLASSIFICATION_WORN' | translate }} {{ mineral.wornClassification }}</em>
+    </li>
+  </ul>
+</div>

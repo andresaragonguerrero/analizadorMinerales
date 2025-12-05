@@ -1,0 +1,58 @@
+<div class="mineral-criteria-wrapper">
+  <section class="section-validation-result">
+    <h2>{{ 'MINERAL_CRITERIA.TITLE_SENT' | translate }}</h2>
+    <div *ngIf="validationResult?.mineralData as mineral" class="container-validation-result">
+
+
+      <div *ngIf="validationResult?.criteriaIsValid; else failed">
+        <em>{{ 'MINERAL_CRITERIA.SUCCESS_MESSAGE' | translate }}</em>
+
+        <svg class="svg-criteria-success" fill="currentColor" width="100px" height="100px" viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg">
+          <g data-name="Layer 3" id="Layer_3">
+            <path
+              d="M42,28a6,6,0,1,1,6-6A6,6,0,0,1,42,28Zm0-10a4,4,0,1,0,4,4A4,4,0,0,0,42,18ZM22,28a6,6,0,1,1,6-6A6,6,0,0,1,22,28Zm0-10a4,4,0,1,0,4,4A4,4,0,0,0,22,18ZM48.14,36.22l.53-.47a1,1,0,0,0-1.34-1.5l-.53.49C44.21,37.08,39.88,41,32,41s-12.21-3.92-14.8-6.26l-.53-.49a1,1,0,1,0-1.34,1.5l.53.47C18.66,38.75,23.35,43,32,43S45.34,38.75,48.14,36.22ZM32,61A29,29,0,1,1,61,32,29,29,0,0,1,32,61ZM32,5A27,27,0,1,0,59,32,27,27,0,0,0,32,5Z" />
+          </g>
+        </svg>
+      </div>
+
+      <ul class="list-mineral-criteria">
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.IDENTIFIER' | translate }}</span> {{ mineral.mineralIdentifier }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.NAME' | translate }}</span> {{ mineral.mineralName }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.GROUP' | translate }}</span> {{ mineral.mineralGroup }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.HARDNESS' | translate }}</span> {{ mineral.mineralHardness }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.GRAIN_SIZE' | translate }}</span> {{ mineral.mineralGrainSize }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.GRAIN_SHAPE' | translate }}</span> {{ mineral.mineralGrainShape }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.CRISTAL_SIZE' | translate }}</span> {{ mineral.mineralCristalSize }}</li>
+        <li class="item-mineral-criteria"><span>{{ 'MINERAL_CRITERIA.FORMATION_TEMPERATURE' | translate }}</span> {{
+          mineral.mineralFormationTemperature
+          }}</li>
+        <li><span>{{ 'MINERAL_CRITERIA.STRUCTURE' | translate }}</span> {{ mineral.mineralStructure }}</li>
+        <li><span>{{ 'MINERAL_CRITERIA.TEXTURE' | translate }}</span> {{ mineral.mineralTexture }}</li>
+
+        <li>
+          <span>{{ 'MINERAL_CRITERIA.CLASSIFICATION' | translate }}</span>
+          <span *ngIf="mineral.buildingClassification">{{ 'MINERAL_CRITERIA.CLASSIFICATION_BUILDING' | translate
+            }}</span>
+          <span *ngIf="mineral.ornamentalClassification">{{ 'MINERAL_CRITERIA.CLASSIFICATION_ORNAMENTAL' | translate
+            }}</span>
+          <span *ngIf="mineral.toolClassification">{{ 'MINERAL_CRITERIA.CLASSIFICATION_TOOL' | translate }}</span>
+          <span *ngIf="mineral.wornClassification">{{ 'MINERAL_CRITERIA.CLASSIFICATION_WORN' | translate }}</span>
+        </li>
+      </ul>
+
+      <ng-template #failed>
+        <em>{{ 'MINERAL_CRITERIA.FAILURE_MESSAGE' | translate }}</em>
+
+        <svg class="svg-criteria-failed" fill="currentColor" width="100px" height="100px" viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg">
+          <g data-name="Layer 40" id="Layer_40">
+            <path
+              d="M32,3A29,29,0,1,0,61,32,29,29,0,0,0,32,3Zm0,56A27,27,0,1,1,59,32,27,27,0,0,1,32,59ZM22,28a6,6,0,0,0,5.91-5H28a1,1,0,0,0,0-2H13a1,1,0,0,0,0,2h3.09A6,6,0,0,0,22,28Zm3.86-5a4,4,0,0,1-7.72,0ZM43.6,41.4a1,1,0,0,1-.2,1.4,1,1,0,0,1-.6.2,1,1,0,0,1-.8-.4C39.58,39.37,31.16,32,21.45,36.89a1,1,0,0,1-.9-1.78C30.33,30.22,39.69,36.19,43.6,41.4ZM51,21H35a1,1,0,0,0,0,2h4.09a6,6,0,0,0,11.82,0H51a1,1,0,0,0,0-2Zm-6,5a4,4,0,0,1-3.86-3h7.72A4,4,0,0,1,45,26Z" />
+          </g>
+        </svg>
+      </ng-template>
+    </div>
+  </section>
+  <app-mineral-storage></app-mineral-storage>
+</div>

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* SOLUCIÓN PARA MOSTRAR LA IMAGEN MÁS OSCURA EN TEMAS OSCUROS: */
+  /*
+  filter: brightness(60%); ( SE PUEDE APLICAR DIRECTAMENTE A LA IMAGEN )
+  background: rgba(0,0,0,0.4); (SE PUEDE APLICAR EXCLUSIVAMENTE AL .BACKGROUND-IMAGE::AFTER )
+  */
+
+  /* SOLUCIÓN PARA IMAGEN DE FONDO APAISADA EN PANTALLAS PEQUEÑAS */
+  /*
+    background-size: cover;
+    background-position: center;
+
+  */
+
+  /* ------ tipografías */
+  --font-family-1: 'Orbitron', sans-serif;
+  --font-family-2: 'Roboto', sans-serif;
+
+  /* ------ tamaños de fuente */
+  --font-base: 1rem;
+  --font-1: calc(var(--font-base) * .5);
+  --font-2: calc(var(--font-base) * .75);
+  --font-3: calc(var(--font-base) * 1.00);
+  --font-4: calc(var(--font-base) * 1.50);
+  --font-5: calc(var(--font-base) * 1.75);
+  --font-6: calc(var(--font-base) * 2.00);
+
+  /* ------ paleta de colores */
+  --primary-color: #04112ed1;
+  --success-color: #006400;
+  --failed-color: #E4002B;
+  --text-color: #000000;
+  --background-color: #FFFDE7;
+
+  /* ------ espaciado/dimensiones */
+  --space-base: 1rem;
+  --space-1: calc(var(--space-base) * 0.25);
+  --space-2: calc(var(--space-base) * 0.50);
+  --space-3: calc(var(--space-base) * 0.75);
+  --space-4: calc(var(--space-base) * 1.00);
+  --space-5: calc(var(--space-base) * 1.50);
+  --space-6: calc(var(--space-base) * 2.00);
+  --space-7: calc(var(--space-base) * 3.00);
+  --space-8: calc(var(--space-base) * 4.00);
+  --space-9: calc(var(--space-base) * 6.00);
+  --space-10: calc(var(--space-base) * 8.00);
+  --space-11: calc(var(--space-base) * 12.00);
+  --space-12: calc(var(--space-base) * 20.00);
+}
+
+:root.dark {
+  --primary-color: #66aaff;
+  --text-color: #FFFDE7;
+  --background-color: #04112ed1;
+}
+
+
+/* :root.dark {
+  color-scheme: dark;
+}
+
+:root.light {
+  color-scheme: light;
+} */
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: var(--font-4);
+  font-family: var(--font-family-1);
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+.svg-criteria-success {
+  fill: var(--success-color);
+}
+
+.svg-criteria-failed {
+  fill: var(--failed-color);
+}
+
+/* ------ estilos de los formularios */
+.form {
+  position: relative;
+  z-index: 0;
+  padding: 0 var(--space-2) var(--space-2) var(--space-2);
+
+  border-radius: var(--space-2);
+
+  box-shadow: 2px 4px 4px -1px rgba(0, 0, 0, .5);
+  backdrop-filter: blur(1px);
+
+  overflow: hidden;
+}
+
+.form::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  opacity: .6;
+  background-color: var(--background-color);
+}
+
+.form-fieldset {
+  padding: var(--space-3);
+
+  border: 2px solid var(--primary-color);
+  border-radius: var(--space-2);
+}
+
+.form-legend {
+  padding: var(--space-1);
+  font-weight: bolder;
+}
+
+.form-legend,
+.label {
+  font-size: var(--font-3);
+  font-family: var(--font-family-1);
+  color: var(--primary-color);
+}
+
+.label {
+  height: var(--space-6);
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-mineral-input .form-section-inputs {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.form .article {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-check-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-mineral-classification,
+.article-mineral-group,
+.article-mineral-texture {
+  gap: var(--space-2);
+}
+
+.input-text-number {
+  height: var(--space-6);
+  width: 100%;
+
+  position: relative;
+  z-index: 0;
+  padding: 0 var(--space-1);
+
+  outline: none;
+  border: 2px solid var(--background-color);
+  border-radius: var(--space-2);
+
+  font-size: var(--font-3);
+  font-family: var(--font-family-2);
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}

@@ -1,0 +1,197 @@
+<form class="form form-mineral-input">
+  <fieldset class="form-fieldset">
+    <legend class="form-legend">{{ 'MINERAL.LEGEND' | translate }}</legend>
+    <section class="form-section-inputs">
+
+      <!-- PRIMERA COLUMNA -->
+      <div class="column">
+
+        <!-- id del mineral -->
+        <article class="article article-mineral-identifier">
+          <label class="label label-mineral-identifier" *ngIf="displayMode === 'expanded'" for="mineralIdentifier">
+            {{ 'MINERAL.IDENTIFIER_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-identifier" type="text" name="mineral-identifier"
+            id="mineralIdentifier"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.IDENTIFIER_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralIdentifier">
+        </article>
+
+        <!-- nombre del mineral -->
+        <article class="article article-mineral-name">
+          <label class="label label-mineral-name" *ngIf="displayMode === 'expanded'" for="mineralName">
+            {{ 'MINERAL.NAME_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-name" type="text" name="mineral-name" id="mineralName"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.NAME_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralName">
+        </article>
+
+        <!-- estructura -->
+        <article class="article article-mineral-structure">
+          <label class="label label-mineral-structure" *ngIf="displayMode === 'expanded'" for="mineral-structure">
+            {{ 'MINERAL.STRUCTURE_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-structure" type="text" name="mineral-structure"
+            id="mineral-structure"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.STRUCTURE_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralStructure">
+        </article>
+
+        <!-- grupo/origen -->
+        <article class="article article-mineral-group">
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-group" for="igneousGroup">
+              {{ 'MINERAL.GROUP_IGNEOUS' | translate }}
+            </label>
+            <input class="input input-mineral-group" type="radio" name="mineral-group" id="igneousGroup"
+              [(ngModel)]="mineral.mineralGroup" value="igneousGroup">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-group" for="metamorphicGroup">
+              {{ 'MINERAL.GROUP_METAMORPHIC' | translate }}
+            </label>
+            <input class="input input-mineral-group" type="radio" name="mineral-group" id="metamorphicGroup"
+              [(ngModel)]="mineral.mineralGroup" value="metamorphicGroup">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-group" for="sedimentaryGroup">
+              {{ 'MINERAL.GROUP_SEDIMENTARY' | translate }}
+            </label>
+            <input class="input input-mineral-group" type="radio" name="mineral-group" id="sedimentaryGroup"
+              [(ngModel)]="mineral.mineralGroup" value="sedimentaryGroup">
+          </div>
+        </article>
+      </div>
+
+      <!-- SEGUNDA COLUMNA -->
+      <div class="column">
+        <!-- tamaño del grano -->
+        <article class="article article-mineral-grain-size">
+          <label class="label label-mineral-grain-size" *ngIf="displayMode === 'expanded'" for="mineralGrainSize">{{
+            'MINERAL.GRAIN_SIZE_LABEL' | translate }}</label>
+          <input class="input-text-number input-mineral-grain-size" type="number" name="mineral-grain-size"
+            id="mineral-grain-size"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.GRAIN_SIZE_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralGrainSize">
+        </article>
+
+        <!-- forma de los granos -->
+        <article class="article article-mineral-grain-shape">
+          <label class="label label-mineral-grain-shape" *ngIf="displayMode === 'expanded'" for="mineralGrainShape">
+            {{ 'MINERAL.GRAIN_SHAPE_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-grain-shape" type="text" name="mineral-grain-shape"
+            id="mineral-grain-shape"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.GRAIN_SHAPE_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralGrainShape">
+        </article>
+
+        <!-- tamaño de los cristales -->
+        <article class="article article-mineral-cristal-size">
+          <label class="label label-cristal-size" *ngIf="displayMode === 'expanded'" for="mineralCristalSize">
+            {{ 'MINERAL.CRISTAL_SIZE_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-cristal-size" type="number" name="mineral-cristal-size"
+            id="mineral-cristal-size"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.CRISTAL_SIZE_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralCristalSize">
+        </article>
+
+        <!-- textura -->
+        <article class="article article-mineral-texture">
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-texture" for="vitreousTexture">
+              {{ 'MINERAL.TEXTURE_VITREOUS' | translate }}
+            </label>
+            <input class="input input-mineral-texture" type="radio" name="mineral-texture" id="vitreousTexture"
+              [(ngModel)]="mineral.mineralTexture" value="vitreousTexture">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-texture" for="afanitaTexture">
+              {{ 'MINERAL.TEXTURE_AFANITIC' | translate }}
+            </label>
+            <input class="input input-mineral-texture" type="radio" name="mineral-texture" id="afanitaTexture"
+              [(ngModel)]="mineral.mineralTexture" value="afanitaTexture">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-texture" for="faneritaTexture">
+              {{ 'MINERAL.TEXTURE_PHANERITIC' | translate }}
+            </label>
+            <input class="input input-mineral-texture" type="radio" name="mineral-texture" id="faneritaTexture"
+              [(ngModel)]="mineral.mineralTexture" value="faneritaTexture">
+          </div>
+
+        </article>
+      </div>
+
+      <!-- TERCERA COLUMNA -->
+      <div class="column">
+        <!-- temperatura de formación -->
+        <article class="article article-mineral-formation-temperature">
+          <label class="label label-formation-temperature" *ngIf="displayMode === 'expanded'"
+            for="mineralFormationTemperature">
+            {{ 'MINERAL.FORMATION_TEMPERATURE_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-formation-temperature" type="number"
+            name="mineral-formation-temperature" id="mineral-formation-temperature"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.FORMATION_TEMPERATURE_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralFormationTemperature" min="-100" max="100"
+            [value]="unitSystemService.convertTemperature(mineral.mineralFormationTemperature)"
+            (input)="mineral.mineralFormationTemperature = unitSystemService.convertTemperature(+$event.target.value)">
+        </article>
+
+        <!-- dureza -->
+        <article class="article article-mineral-hardness">
+          <label class="label label-mineral-hardness" *ngIf="displayMode === 'expanded'" for="mineralHardness">
+            {{ 'MINERAL.HARDNESS_LABEL' | translate }}
+          </label>
+          <input class="input-text-number input-mineral-hardness" type="number" name="mineral-hardness"
+            id="mineralHardness"
+            [placeholder]="displayMode === 'collapsed' ? ('MINERAL.HARDNESS_PLACEHOLDER' | translate) : ''"
+            [(ngModel)]="mineral.mineralHardness">
+        </article>
+
+        <!-- clasificación: construcción, ornamentales, uso en utensilios, piedras machacadas -->
+        <article class="article article-mineral-classification">
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-classification" for="buildingClassification">
+              {{ 'MINERAL.CLASSIFICATION_BUILDING' | translate }}
+            </label>
+            <input class="input input-mineral-classification" type="checkbox" name="mineral-classification"
+              id="buildingClassification" [(ngModel)]="buildingClassification">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-classification" for="ornamentalClassification">
+              {{ 'MINERAL.CLASSIFICATION_ORNAMENTAL' | translate }}
+            </label>
+            <input class="input input-mineral-classification" type="checkbox" name="mineral-classification"
+              id="ornamentalClassification" [(ngModel)]="ornamentalClassification">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-classification" for="toolClassification">
+              {{ 'MINERAL.CLASSIFICATION_TOOL' | translate }}
+            </label>
+            <input class="input input-mineral-classification" type="checkbox" name="mineral-classification"
+              id="toolClassification" [(ngModel)]="toolClassification">
+          </div>
+
+          <div class="radio-check-wrapper">
+            <label class="label label-mineral-classification" for="wornClassification">
+              {{ 'MINERAL.CLASSIFICATION_WORN' | translate }}
+            </label>
+            <input class="input input-mineral-classification" type="checkbox" name="mineral-classification"
+              id="wornClassification" [(ngModel)]="wornClassification">
+          </div>
+        </article>
+      </div>
+    </section>
+  </fieldset>
+</form>
