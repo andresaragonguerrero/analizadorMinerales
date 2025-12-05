@@ -1,0 +1,74 @@
+<div class="form-config-wrapper">
+  <section class="section section-description">
+    <p i18n>{{ 'FORM.DESCRIPTION_1' | translate }}</p><br>
+    <p i18n>{{ 'FORM.DESCRIPTION_2' | translate }}</p>
+  </section>
+
+  <section class="section section-config">
+    <article class="article article-display-mode">
+      <h2>{{ 'FORM.FORMAT_TEXT' | translate }}</h2><!-- Cambiar el formato a reducido/extendido -->
+      <div class="button-group">
+        <button class="button button-display-extended" [class.active]="selectedDisplayMode === 'expanded'"
+          (click)="setDisplayMode('expanded')">
+          {{ 'FORM.FORMAT_EXTENDED' | translate }}
+        </button>
+
+        <button class="button button-display-reduced" [class.active]="selectedDisplayMode === 'collapsed'"
+          (click)="setDisplayMode('collapsed')">
+          {{ 'FORM.FORMAT_REDUCED' | translate }}
+        </button>
+      </div>
+    </article>
+
+    <article class="article article-mineral-criteria">
+      <h2>{{ 'FORM.CRITERIA_TEXT' | translate }}</h2><!-- Elegir el criterio de análisis del mineral -->
+
+      <!-- información de los criterios de validación -->
+      <div class="container-criteria-info">
+        <p>{{ 'FORM.CRITERIA_INFO' | translate }}</p>
+        <ul class="menu-criteria-info">
+          <li class="item-criteria-info">
+            <em>{{ 'FORM.CRITERIA_INFO_1' | translate }}</em>
+          </li>
+          <li class="item-criteria-info">
+            <em>{{ 'FORM.CRITERIA_INFO_2' | translate }}</em>
+          </li>
+          <li class="item-criteria-info">
+            <em>{{ 'FORM.CRITERIA_INFO_3' | translate }}</em>
+          </li>
+        </ul>
+      </div>
+
+      <div class="button-group">
+        <button class="button button-criteria-igneous" [class.active]="selectedCriteria === 'igneousGroup'"
+          (click)="setCriteria('igneousGroup')">
+          {{ 'FORM.CRITERIA_IGNEOUS' | translate }}
+        </button>
+
+        <button class="button button-criteria-sedimentary" [class.active]="selectedCriteria === 'sedimentaryGroup'"
+          (click)="setCriteria('sedimentaryGroup')">
+          {{ 'FORM.CRITERIA_SEDIMENTARY' | translate }}
+        </button>
+
+        <button class="button button-criteria-metamorphic" [class.active]="selectedCriteria === 'metamorphicGroup'"
+          (click)="setCriteria('metamorphicGroup')">
+          {{ 'FORM.CRITERIA_METAMORPHIC' | translate }}
+        </button>
+      </div>
+    </article>
+    <article class="article article-form-actions">
+      <h2>{{ 'FORM.DESCRIPTION_3' | translate }}</h2><!-- añadir mineral a una base de datos/limpiar formularios -->
+      <div class="button-group">
+        <button class="button button-send-form" (click)="submitForms()">
+          {{ 'FORM.BUTTON_SEND' | translate }}
+        </button>
+        <button class="button button-reset-form" (click)="resetForms()">
+          {{ 'FORM.BUTTON_RESET' | translate }}
+        </button>
+        <button class="button button-clear-storage" (click)="clearStorage.emit()">
+          {{ 'FORM.BUTTON_CLEAR_STORAGE' | translate }}
+        </button>
+      </div>
+    </article>
+  </section>
+</div>

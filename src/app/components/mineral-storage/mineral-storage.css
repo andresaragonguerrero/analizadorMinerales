@@ -1,0 +1,77 @@
+.mineral-storage-wrapper h2 {
+  font-size: var(--font-4);
+  font-family: var(--font-family-1);
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.mineral-storage-wrapper em:first-child {
+  font-size: var(--font-3);
+  font-family: var(--font-family-2);
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.mineral-storage-wrapper em {
+  font-size: var(--font-2);
+  font-family: var(--font-family-2);
+  color: var(--primary-color);
+}
+
+.mineral-storage-wrapper {
+  display: grid;
+  align-items: flex-start;
+  gap: var(--space-1);
+
+  cursor: pointer;
+}
+
+.list-mineral-data {
+  max-height: calc(var(--space-12) + var(--space-9));
+
+  display: grid;
+  gap: var(--space-2);
+
+  overflow-y: auto;
+}
+
+.mineral-data {
+  position: relative;
+  padding: var(--space-2);
+
+  display: grid;
+  gap: var(--space-1);
+
+  transition: opacity .5 ease-out;
+}
+
+.mineral-data::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  border-radius: var(--space-2);
+
+  background-color: var(--background-color);
+}
+
+.mineral-data:nth-child(even)::after {
+  opacity: 0.5;
+}
+
+.mineral-data:nth-child(odd)::after {
+  opacity: 0.6;
+}
+
+.mineral-data:hover::after {
+  opacity: .9;
+}
+
+@media (max-width: 750px) {
+  .mineral-storage-wrapper h2 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
