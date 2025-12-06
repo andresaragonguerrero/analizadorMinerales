@@ -26,6 +26,8 @@ export class Header {
   // propiedades
   selectedLanguage = signal<'es' | 'en' | 'fr'>('es');
   theme = signal<'light' | 'dark'>('light');
+  // menú
+  menuOpen = signal<boolean>(false);
 
   // constructor
   constructor(
@@ -59,5 +61,13 @@ export class Header {
 
   toggleTheme() {
     this.themeService.toggleTheme();
+  }
+
+  toggleMenu() {
+    this.menuOpen.update(open => !open);
+  }
+
+  closeMenu() {
+    this.menuOpen.set(false);
   }
 }
